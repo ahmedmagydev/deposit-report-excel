@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="desposit_wizard_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
+        <field name="res_model">desposit.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        
+    </record>
+
+
+    <record id="desposit_wizard_view_form" model="ir.ui.view">
+        <field name="name">desposit.wizard.view.form</field>
+        <field name="model">desposit.wizard</field>
+        <field name="arch" type="xml">
+            <form >
+                <sheet>
+                    <group>
+                    <group >
+                        <field name="customer" />
+                        <field name="datef" />
+                    </group>
+                    <group >
+                        <field name="dateto" />
+                        <field name="account" />
+                    </group>
+                        
+                    </group>
+                    <footer>
+                        <button name="button_xlxs_wizard" type="object" class="btn-primary" string='Export'/>
+                            </footer>
+                        
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+   
+
+   <menuitem
+    id="desposit_menue"
+    name="SoA"
+    action="desposit_wizard_action"
+    
+    parent="account.account_reports_legal_statements_menu"
+    sequence="10"/>
+   <record id="action_report_deposit" model="ir.actions.report">
+    <field name="name">SoA</field>
+    <field name="model">desposit.wizard</field>
+    <field name="report_type">xlsx</field>
+    <field name="report_name">deposit_report.deposit_xlsx</field>
+    <field name="report_file">deposit_report.deposit_xlsx</field>
+    <field name="print_report_name">'%s' % object.customer</field>
+    <field name="binding_type">report</field>
+   </record>
+
+
+
+
+</odoo>
