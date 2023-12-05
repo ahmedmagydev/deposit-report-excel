@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_salik_gates,salik.gates,model_salik_gates,,1,1,1,1
-access_salik_car_transaction,salik.car.transaction,model_salik_car_transaction,,1,1,1,1
-access_car_fines,car.fines,model_car_fines,,1,1,1,1
