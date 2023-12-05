@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="email_finished_rent_date" model="mail.template">
+            <field name="name"> Finish Rent</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Finish Rent: {{ object.partner_id.name }}</field>
+            <field name="email_to">{{object.partner_id.email_formatted}}</field>
+            <field name="email_from">{{ (user.email_formatted) }}</field>
+            <field name="body_html" type="html">
+
+                <p>
+                    You rent of car Finished
+                    <t t-out="object.name"/>
+                    <br/>
+                    For Customer:
+                    <t t-out="object.partner_id.name"/>
+
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="fleet_vehicle_view_search_inherit_salik_tag_num" model="ir.ui.view">
+        <field name="name">fleet.vehicle</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='license_plate']" position="after">
+                <group>
+                    <group> <field name="salik_tag_number"/></group>
+                    <group></group>
+                </group>
+            </xpath>
+
+             <xpath expr="//button[@name='open_assignation_logs']" position="before">
+                <button class="oe_stat_button"
+                        type="object" name="action_view_transaction" icon="fa-car"
+                        string="Fleet Transaction"
+                >
+                <field name="transaction_count" widget="statinfo" />
+
+                </button>
+            </xpath>
+
+
+
+        </field>
+    </record>
+
+
+
+    </data>
+</odoo>
